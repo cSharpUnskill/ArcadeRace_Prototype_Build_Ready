@@ -41,11 +41,6 @@ namespace Cars
             }
         }
 
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(transform.TransformPoint(_centerOfMass), 0.5f);
-        }
 
         private void HandBrake(float isOn)
         {
