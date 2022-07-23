@@ -5,33 +5,13 @@ using System.Linq;
 
 namespace Cars
 {
-    public class Recorder : MonoBehaviour
+    public static class Recorder 
     {
-        public static Recorder Singleton;
+        private static StreamWriter _writer;
 
-        private StreamWriter _writer;
+        private static string _address = Directory.GetCurrentDirectory().ToString() + @"\" + "Log" + ".txt";
 
-        private string _address;
-
-        private string _fileName = "Log";
-
-        void Awake()
-        {
-            if (!Singleton)
-            {
-                Singleton = this;
-                DontDestroyOnLoad(gameObject);
-            }
-
-            else Destroy(gameObject);
-        }
-
-        void Start()
-        {
-            _address = Directory.GetCurrentDirectory().ToString() + @"\" + _fileName + ".txt";
-        }
-
-        public void Write(string name, string time)
+        public static void Write(string name, string time)
         {
             _writer = new StreamWriter(_address, true);
 
@@ -44,7 +24,7 @@ namespace Cars
             _writer = null;
         }
 
-        public List<string> Read()
+        public static List<string> Read()
         {
             if (File.Exists(_address))
             {
@@ -66,7 +46,7 @@ namespace Cars
             else return new List<string>();
         }
 
-        public Dictionary<string, string> CurrentLeaderboard()
+        public static Dictionary<string, string> CurrentLeaderboard()
         {
             return Read()
                 .Select(z => new { 

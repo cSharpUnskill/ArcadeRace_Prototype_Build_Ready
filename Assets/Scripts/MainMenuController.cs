@@ -93,7 +93,7 @@ namespace Cars
             }
         }
 
-        bool CheckExistingNicknames(string name) => Recorder.Singleton.CurrentLeaderboard().ContainsKey(name);
+        bool CheckExistingNicknames(string name) => Recorder.CurrentLeaderboard().ContainsKey(name);
         
         public void Race_EditorEvent()
         {

@@ -31,7 +31,7 @@ namespace Cars
             var car = col.GetComponentInParent<CarComponent>();
             if(car != null) car.RemoteHandBrake();
 
-            Recorder.Singleton.Write(_player.Name, _lapTimer.LapTime.ToString(@"mm\:ss\:f"));
+            Recorder.Write(_player.Name, _lapTimer.LapTime.ToString(@"mm\:ss\:f"));
 
             StartCoroutine(EndRaceAnimations());
             foreach (var speedometer in _speedometers)  speedometer.FinishRace();
@@ -43,7 +43,7 @@ namespace Cars
         {
             _blackScreenAnimator.SetTrigger("Blackout");
 
-            var leaderBoard = Recorder.Singleton.CurrentLeaderboard()
+            var leaderBoard = Recorder.CurrentLeaderboard()
                 .OrderBy(c => int.Parse(string.Concat(c.Value.Where(char.IsDigit))));
 
             yield return null;
