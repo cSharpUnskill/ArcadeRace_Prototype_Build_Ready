@@ -34,11 +34,8 @@ namespace Cars
             StartCoroutine(Speed());
         }
 
-        public void FinishRace()
-        {
-            gameObject.SetActive(false);
-        }
-
+        public void FinishRace() => gameObject.SetActive(false);
+        
         private IEnumerator Speed()
         {
             var prevPos = _car.position;
