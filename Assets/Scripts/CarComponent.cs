@@ -29,7 +29,7 @@ namespace Cars
             _body.centerOfMass = _centerOfMass;
         }
 
-        void FixedUpdate()
+        void Update()
         {
             _wheels.UpdateVisual(_input.Rotate * _maxSteerAngle);
 
