@@ -33,7 +33,7 @@ namespace Cars
         {
             _wheels.UpdateVisual(_input.Rotate * _maxSteerAngle);
 
-            var torque = _input.Acceletartion * _torque / 2f;
+            var torque = _input.Acceleration * _torque / 2f;
 
             foreach (var wheel in _wheels.GetRearWheels)
             {
@@ -41,6 +41,11 @@ namespace Cars
             }
         }
 
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(transform.TransformPoint(_centerOfMass), 0.5f);
+        }
 
         private void HandBrake(float isOn)
         {
@@ -67,14 +72,14 @@ namespace Cars
             foreach (var wheel in _wheels.GetAllWheels) wheel.brakeTorque = _handBrakeTorque;
         }
 
-        IEnumerator Lerp(float LerpTime)
+        IEnumerator Lerp(float lerpTime)
         {
             var time = 0f;
 
             while (time < 1f)
             {
                 _body.velocity = Vector3.Lerp(_body.velocity, Vector3.zero, time * time);
-                time += Time.deltaTime / LerpTime;
+                time += Time.deltaTime / lerpTime;
                 yield return null;
             }
             _body.velocity = Vector3.zero;

@@ -35,6 +35,10 @@ namespace Cars
         private MainMenuCameraController _camController;
 
         private Color _grayColor;
+        private static readonly int ScaleDown = Animator.StringToHash("ScaleDown");
+        private static readonly int Whitening = Animator.StringToHash("Whitening");
+        private static readonly int Upwards = Animator.StringToHash("Upwards");
+        private static readonly int Blackout = Animator.StringToHash("Blackout");
 
         void Start()
         {
@@ -60,16 +64,16 @@ namespace Cars
         public void BigOkButton_EditorEvent()
         {
             _goButton.interactable = false;
-            _nameFieldAnimator.SetTrigger("ScaleDown");
-            _blackScreenAnimator.SetTrigger("Whitening");
+            _nameFieldAnimator.SetTrigger(ScaleDown);
+            _blackScreenAnimator.SetTrigger(Whitening);
             _camController.StartTransitionAnimation();
         }
 
-        public void CheckName_EditorEvent(string name)
+        public void CheckName_EditorEvent(string userName)
         {
-            if (name.Length > 0 && name.Length <= 8)
+            if (userName.Length is > 0 and <= 8)
             {
-                if (CheckExistingNicknames(name))
+                if (CheckExistingNicknames(userName))
                 {
                     _goButton.interactable = false;
                     _nameSettingsText.text = "User with same nickname\nalready been added";
@@ -78,7 +82,7 @@ namespace Cars
                 }
                 else
                 {
-                    GameEvents.Singleton.SetPlayerName(name);
+                    GameEvents.Singleton.SetPlayerName(userName);
                     _nameSettings.SetActive(false);
                     Invoke(nameof(EnableGoButton), 0.3f);
                 }
@@ -93,17 +97,17 @@ namespace Cars
             }
         }
 
-        bool CheckExistingNicknames(string name) => Recorder.CurrentLeaderboard().ContainsKey(name);
+        bool CheckExistingNicknames(string userName) => Recorder.CurrentLeaderboard().ContainsKey(userName);
         
         public void Race_EditorEvent()
         {
             _nameField.SetActive(true);
-            _buttonsAnimator.SetTrigger("Upwards");
+            _buttonsAnimator.SetTrigger(Upwards);
             _blackScreen.SetActive(true);
         }
 
         void EnableGoButton() => _goButton.interactable = true;
-        private void AnimationBlackout() => _blackScreenAnimator.SetTrigger("Blackout");
+        private void AnimationBlackout() => _blackScreenAnimator.SetTrigger(Blackout);
         private void MenuShowUp() => _menu.SetActive(true);
         private void ChangeScene() => SceneManager.LoadScene(1);
 

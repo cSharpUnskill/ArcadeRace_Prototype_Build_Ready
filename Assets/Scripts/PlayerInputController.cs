@@ -6,7 +6,7 @@ namespace Cars
     {
         private CarControls _controls;
 
-        private bool _isReady = false;
+        private bool _isReady;
 
         private string _name;
         public string Name => _name;
@@ -19,6 +19,8 @@ namespace Cars
         private bool _isMenuOpen;
 
         private bool _isMenuReady = true;
+        private static readonly int Show = Animator.StringToHash("Show");
+        private static readonly int Hide = Animator.StringToHash("Hide");
 
         void Awake()
         {
@@ -37,12 +39,12 @@ namespace Cars
             {
                 _isMenuOpen = true;
                 Time.timeScale = 0f;
-                _topMenuAnimator.SetTrigger("Show");
+                _topMenuAnimator.SetTrigger(Show);
             }
             else
             {
                 _isMenuOpen = false;
-                _topMenuAnimator.SetTrigger("Hide");
+                _topMenuAnimator.SetTrigger(Hide);
                 Time.timeScale = 1f;
             }
         }
@@ -54,7 +56,7 @@ namespace Cars
         {
             if (!_isReady) return;
 
-            Acceletartion = _controls.Player.Acceleration.ReadValue<float>();
+            Acceleration = _controls.Player.Acceleration.ReadValue<float>();
 
             CallHandBrake(_controls.Player.Brake.ReadValue<float>());
 

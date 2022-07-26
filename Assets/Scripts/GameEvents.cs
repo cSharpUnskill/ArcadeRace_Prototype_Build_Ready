@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 namespace Cars
@@ -33,7 +31,7 @@ namespace Cars
 
         }
 
-        public void SetPlayerName(string name) => _playerName = name;
+        public void SetPlayerName(string userName) => _playerName = userName;
         public void Blackout() => OnBlackout?.Invoke();
         public void CameraAnimationEnd() => OnCameraAnimationEnd?.Invoke();
         public void ReadyToChangeScene() => ReadyToTransition?.Invoke();

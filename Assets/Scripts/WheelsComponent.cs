@@ -36,13 +36,13 @@ namespace Cars
 
         void Start()
         {
-            _frontMeshes = new Transform[] { _leftFrontMesh, _rightFrontMesh };
-            _rearMeshes = new Transform[] { _leftRearMesh, _rightRearMesh };
-            _allMeshes = new Transform[] { _leftFrontMesh, _rightFrontMesh, _leftRearMesh, _rightRearMesh };
+            _frontMeshes = new[] { _leftFrontMesh, _rightFrontMesh };
+            _rearMeshes = new[] { _leftRearMesh, _rightRearMesh };
+            _allMeshes = new[] { _leftFrontMesh, _rightFrontMesh, _leftRearMesh, _rightRearMesh };
 
-            _frontWheels = new WheelCollider[] { _leftFrontWheel, _rightFrontWheel };
-            _rearWheels = new WheelCollider[] { _leftRearWheel, _rightRearWheel };
-            _allWheels = new WheelCollider[] { _leftFrontWheel, _rightFrontWheel, _leftRearWheel, _rightRearWheel };
+            _frontWheels = new[] { _leftFrontWheel, _rightFrontWheel };
+            _rearWheels = new[] { _leftRearWheel, _rightRearWheel };
+            _allWheels = new[] { _leftFrontWheel, _rightFrontWheel, _leftRearWheel, _rightRearWheel };
         }
 
         public void UpdateVisual(float angle)

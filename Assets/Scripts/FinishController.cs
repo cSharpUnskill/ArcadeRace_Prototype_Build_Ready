@@ -26,6 +26,9 @@ namespace Cars
         [SerializeField]
         private Animator _topMenuAnimator;
 
+        private static readonly int Blackout = Animator.StringToHash("Blackout");
+        private static readonly int Show = Animator.StringToHash("Show");
+
         void OnTriggerEnter(Collider col)
         {
             var car = col.GetComponentInParent<CarComponent>();
@@ -41,14 +44,14 @@ namespace Cars
 
         IEnumerator EndRaceAnimations()
         {
-            _blackScreenAnimator.SetTrigger("Blackout");
+            _blackScreenAnimator.SetTrigger(Blackout);
 
             var leaderBoard = Recorder.CurrentLeaderboard()
                 .OrderBy(c => int.Parse(string.Concat(c.Value.Where(char.IsDigit))));
 
             yield return null;
             _yourTime.gameObject.SetActive(true);
-            _yourTime.text += $" {_lapTimer.LapTime.ToString(@"mm\:ss\:f")}";
+            _yourTime.text += $" {_lapTimer.LapTime:mm\\:ss\\:f}";
 
             yield return new WaitForSecondsRealtime(1f);
 
@@ -71,7 +74,7 @@ namespace Cars
                 }
             }
 
-            _topMenuAnimator.SetTrigger("Show");
+            _topMenuAnimator.SetTrigger(Show);
         }
     }
 }

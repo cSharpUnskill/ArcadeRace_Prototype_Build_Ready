@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Cars
@@ -9,9 +7,12 @@ namespace Cars
     {
         [SerializeField]
         private PlayerInputController _player;
+
+        private static readonly int Hide = Animator.StringToHash("Hide");
+
         public void Resume_EditorEvent()
         {
-            GetComponent<Animator>().SetTrigger("Hide");
+            GetComponent<Animator>().SetTrigger(Hide);
             Time.timeScale = 1f;
         }
 

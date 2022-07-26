@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using System.Linq;
 
 namespace Cars
@@ -9,11 +8,11 @@ namespace Cars
     {
         private static StreamWriter _writer;
 
-        private static string _address = Directory.GetCurrentDirectory().ToString() + @"\" + "Log" + ".txt";
+        private static readonly string Address = Directory.GetCurrentDirectory() + @"\" + "Log" + ".txt";
 
         public static void Write(string name, string time)
         {
-            _writer = new StreamWriter(_address, true);
+            _writer = new StreamWriter(Address, true);
 
             var line = $"{name}|{time}";
 
@@ -24,13 +23,13 @@ namespace Cars
             _writer = null;
         }
 
-        public static List<string> Read()
+        private static List<string> Read()
         {
-            if (File.Exists(_address))
+            if (File.Exists(Address))
             {
-                var fileText = string.Empty;
+                string fileText;
 
-                StreamReader reader = new StreamReader(_address);
+                StreamReader reader = new StreamReader(Address);
 
                 fileText = reader.ReadToEnd();
 

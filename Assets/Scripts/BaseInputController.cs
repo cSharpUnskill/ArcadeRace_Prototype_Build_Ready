@@ -5,7 +5,7 @@ namespace Cars
 {
     public abstract class BaseInputController : MonoBehaviour
     {
-        public float Acceletartion { get; protected set; }
+        public float Acceleration { get; protected set; }
         public float Rotate { get; protected set; }
 
         public event Action<float> OnHandBrake;

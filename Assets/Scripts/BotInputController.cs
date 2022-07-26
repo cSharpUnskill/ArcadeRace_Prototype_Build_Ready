@@ -5,12 +5,12 @@ namespace Cars
 {
     public class BotInputController : BaseInputController
     {
-        private int _index = 0;
+        private int _index;
 
         [SerializeField]
         private BotTargetPoint[] _points;
 
-        private bool _isReady = false;
+        private bool _isReady;
 
         IEnumerator Start()
         {
@@ -22,7 +22,7 @@ namespace Cars
         {
             if (!_isReady) return;
 
-            Acceletartion = 1f;
+            Acceleration = 1f;
 
             var direction = GetAngle();
 
