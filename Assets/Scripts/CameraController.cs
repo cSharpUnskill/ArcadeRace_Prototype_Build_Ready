@@ -8,11 +8,12 @@ namespace Cars
         private Animator _animator;
         [SerializeField]
         private GameObject _timer;
-
-        private static readonly int StartTrigger = Animator.StringToHash("StartTrigger");
-
-        public void ReadyToDrive() => GameEvents.Singleton.CameraAnimationEnd();  
+        [SerializeField]
+        private Transform _target;
         
+        private static readonly int StartTrigger = Animator.StringToHash("StartTrigger");
+        public void ReadyToDrive() => GameEvents.Singleton.CameraAnimationEnd();
+
         public void OnLookaroundEnd()
         {
             _animator.SetTrigger(StartTrigger);

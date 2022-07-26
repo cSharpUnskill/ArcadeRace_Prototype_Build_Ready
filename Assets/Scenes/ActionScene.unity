@@ -1085,7 +1085,6 @@ MonoBehaviour:
   _speedometers:
   - {fileID: 852501900}
   - {fileID: 2014715436}
-  _blackScreen: {fileID: 716152615}
   _yourTime: {fileID: 448398675}
   _leaderboard: {fileID: 237521367}
   _linePrefab: {fileID: 2024865435}
@@ -1976,8 +1975,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.019716369, y: 0.09427907, z: -0.0019139837, w: -0.99534875}
-  m_LocalPosition: {x: 1.7254248, y: 0.84827125, z: -2.7554195}
+  m_LocalRotation: {x: -0.019716363, y: 0.09427908, z: -0.0019139831, w: -0.99534875}
+  m_LocalPosition: {x: 1.7254289, y: 0.8482715, z: -2.7554138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7817509683931022058}
@@ -2016,6 +2015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 963194229}
   _timer: {fileID: 740292545}
+  _target: {fileID: 0}
 --- !u!1 &1039526074
 GameObject:
   m_ObjectHideFlags: 0
