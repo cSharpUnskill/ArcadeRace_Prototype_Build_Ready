@@ -71,7 +71,7 @@ namespace Cars
 
         public void CheckName_EditorEvent(string userName)
         {
-            if (userName.Length is > 0 and <= 8)
+            if (userName.Length > 0 && userName.Length <= 8)
             {
                 if (CheckExistingNicknames(userName))
                 {
