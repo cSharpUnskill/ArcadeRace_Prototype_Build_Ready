@@ -42,7 +42,7 @@ namespace Cars
             _player.FinishRace();
         }
 
-        IEnumerator EndRaceAnimations()
+        private IEnumerator EndRaceAnimations()
         {
             _blackScreenAnimator.SetTrigger(Blackout);
 
