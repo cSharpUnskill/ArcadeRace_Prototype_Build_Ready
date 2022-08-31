@@ -47,6 +47,11 @@ namespace Cars
                 var distance = Vector3.Distance(_car.position, prevPos);
                 var speed = (float)System.Math.Round(distance / _delay * c_converter);
 
+                if (speed >= 50f)
+                {
+                    TutorialManager.OnEvent(TutorialEvent.SpeedMore50);
+                }
+
                 _text.text = speed.ToString();
                 _text.color = Color.Lerp(_minColor, _maxColor, speed / _maxSpeed);
 

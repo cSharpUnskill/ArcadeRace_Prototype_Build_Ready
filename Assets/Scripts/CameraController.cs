@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Cars
 {
     public class CameraController : MonoBehaviour
     {
+        public event Action StartAnimationEndEvent;
         [SerializeField]
         private Animator _animator;
         [SerializeField]
@@ -12,15 +14,13 @@ namespace Cars
         private Transform _target;
         [SerializeField]
         private int _lerpSpeed;
-
         private bool _isReady;
-
         private static readonly int StartTrigger = Animator.StringToHash("StartTrigger");
 
         public void ReadyToDrive()
         {
             _animator.enabled = false;
-            GameEvents.Singleton.CameraAnimationEnd();
+            StartAnimationEndEvent?.Invoke();
             _isReady = true;
         }
 

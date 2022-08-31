@@ -4,29 +4,26 @@ namespace Cars
 {
     public class PlayerInputController : BaseInputController
     {
+        [SerializeField]
+        private CameraController _cam;
         private CarControls _controls;
-
         private bool _isReady;
-
         private string _name;
         public string Name => _name;
-
         [SerializeField]
         private Animator _topMenuAnimator;
         [SerializeField]
-        private float _wheelsTurnToBasePosSpeed; //однажды преподаватель сказал не использовать безымянные цифры и все делать переменными, ну другого названия придумать не смог :)
-
+        private float _wheelsTurnToBasePosSpeed;
         private bool _isMenuOpen;
-
         private bool _isMenuReady = true;
         private static readonly int Show = Animator.StringToHash("Show");
         private static readonly int Hide = Animator.StringToHash("Hide");
 
         void Awake()
         {
-            _name = GameEvents.Singleton.PlayerName;
+            // _name = GameEvents.Singleton.PlayerName;
             _controls = new CarControls();
-            GameEvents.Singleton.OnCameraAnimationEnd += CameraEndAnimation;
+            _cam.StartAnimationEndEvent += CameraEndAnimation;
             _controls.Player.Pause.performed += Pause_EditorEvent;
             _isMenuOpen = false;
         }
@@ -86,7 +83,7 @@ namespace Cars
 
         void OnDestroy()
         {
-            GameEvents.Singleton.OnCameraAnimationEnd -= CameraEndAnimation;
+            // GameEvents.Singleton.OnCameraAnimationEnd -= CameraEndAnimation;
             _controls.Player.Pause.performed -= Pause_EditorEvent;
             _controls.Dispose();
         }

@@ -69,7 +69,7 @@ namespace Cars
         public void RemoteHandBrake()
         {
             StartCoroutine(Lerp(2f));
-            foreach (var wheel in _wheels.GetAllWheels) wheel.brakeTorque = _handBrakeTorque;
+            foreach (WheelCollider wheel in _wheels.GetAllWheels) wheel.brakeTorque = _handBrakeTorque;
         }
 
         IEnumerator Lerp(float lerpTime)
