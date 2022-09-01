@@ -14,7 +14,7 @@ namespace Cars
         [SerializeField]
         private PlayerInputController _player;
         [SerializeField]
-        private Speedometer[] _speedometers;
+        private Speedometer _speedometer;
         [SerializeField]
         private TextMeshProUGUI _yourTime;
         [SerializeField]
@@ -29,15 +29,15 @@ namespace Cars
         private static readonly int Blackout = Animator.StringToHash("Blackout");
         private static readonly int Show = Animator.StringToHash("Show");
 
-        void OnTriggerEnter(Collider col)
+        private void OnTriggerEnter(Collider col)
         {
-            var car = col.GetComponentInParent<CarComponent>();
+            CarComponent car = col.GetComponentInParent<CarComponent>();
             if(car != null) car.RemoteHandBrake();
 
             Recorder.Write(_player.Name, _lapTimer.LapTime.ToString(@"mm\:ss\:f"));
 
             StartCoroutine(EndRaceAnimations());
-            foreach (var speedometer in _speedometers)  speedometer.FinishRace();
+            _speedometer.FinishRace();
             _lapTimer.TurnOffTimer();
             _player.FinishRace();
         }
@@ -63,15 +63,14 @@ namespace Cars
 
             for (int i = 0; i < 7; i++)
             {
-                if (leaderBoard.Count() > i)
-                {
-                    var line = Instantiate(_linePrefab, _canvas);
-                    line.gameObject.SetActive(true);
-                    line.text = $"{leaderBoard.ElementAt(i).Key} {leaderBoard.ElementAt(i).Value}";
-                    line.rectTransform.anchoredPosition = new Vector2(0, 80 + k);
-                    k -= 60;
-                    yield return new WaitForSecondsRealtime(0.3f);
-                }
+                if (leaderBoard.Count() <= i) continue;
+                TextMeshProUGUI line = Instantiate(_linePrefab, _canvas);
+                line.gameObject.SetActive(true);
+                var element = leaderBoard.ElementAt(i);
+                line.text = $"{element.Key} {element.Value}";
+                line.rectTransform.anchoredPosition = new Vector2(0, 80 + k);
+                k -= 60;
+                yield return new WaitForSecondsRealtime(0.3f);
             }
 
             _topMenuAnimator.SetTrigger(Show);

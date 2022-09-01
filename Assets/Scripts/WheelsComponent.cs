@@ -34,7 +34,7 @@ namespace Cars
         public WheelCollider[] GetFrontWheels => _frontWheels;
         public WheelCollider[] GetRearWheels => _rearWheels;
 
-        void Start()
+        private void Start()
         {
             _frontMeshes = new[] { _leftFrontMesh, _rightFrontMesh };
             _rearMeshes = new[] { _leftRearMesh, _rightRearMesh };

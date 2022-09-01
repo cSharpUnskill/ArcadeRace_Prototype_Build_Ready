@@ -8,28 +8,26 @@ namespace Cars
     {
         [SerializeField]
         private Text _text;
-
+        [SerializeField]
+        private CameraController _cam;
         private float _currentTime;
-
         private bool _lapTimerActive = true;
-
         private TimeSpan _time;
         public TimeSpan LapTime => _time;
-        void Start()
+
+        private void Start()
         {
             _currentTime = 0f;
-            GameEvents.Singleton.OnCameraAnimationEnd += CameraEndStartAnimation;
+            _cam.StartAnimationEndEvent += CameraEndStartAnimation;
             gameObject.SetActive(false);
         }
 
-        void Update()
+        private void Update()
         {
             if (!_lapTimerActive) return;
 
             if (gameObject.activeSelf)
-            {
-                _currentTime = _currentTime + Time.deltaTime;
-            }
+                _currentTime += Time.deltaTime;
 
             _time = TimeSpan.FromSeconds(_currentTime);
             _text.text = _time.ToString(@"mm\:ss\:f");
@@ -41,7 +39,7 @@ namespace Cars
             gameObject.SetActive(false);
         }
 
-        void CameraEndStartAnimation() => gameObject.SetActive(true);
-        void OnDestroy() => GameEvents.Singleton.OnCameraAnimationEnd -= CameraEndStartAnimation;
+        private void CameraEndStartAnimation() => gameObject.SetActive(true);
+        private void OnDestroy() => _cam.StartAnimationEndEvent += CameraEndStartAnimation;
     }
 }

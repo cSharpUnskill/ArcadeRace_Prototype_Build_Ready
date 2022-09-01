@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Cars
 {
@@ -8,41 +9,59 @@ namespace Cars
         private CameraController _cam;
         private CarControls _controls;
         private bool _isReady;
-        private string _name;
-        public string Name => _name;
+        public string Name { get; private set; }
         [SerializeField]
-        private Animator _topMenuAnimator;
+        private ActionSceneMenu _topMenu;
         [SerializeField]
         private float _wheelsTurnToBasePosSpeed;
         private bool _isMenuOpen;
         private bool _isMenuReady = true;
+        private bool _isRearViewDisabled;
+        private bool _isAccelerationDisabled;
         private static readonly int Show = Animator.StringToHash("Show");
         private static readonly int Hide = Animator.StringToHash("Hide");
 
-        void Awake()
+        private void Awake()
         {
-            // _name = GameEvents.Singleton.PlayerName;
+            Name = GameEvents.Singleton.PlayerName;
             _controls = new CarControls();
             _cam.StartAnimationEndEvent += CameraEndAnimation;
             _controls.Player.Pause.performed += Pause_EditorEvent;
+            _controls.Player.RearView.started += RearView_EditorEvent;
+            _controls.Player.RearView.canceled += RearView_EditorEvent;
             _isMenuOpen = false;
         }
 
-        private void Pause_EditorEvent(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        private void RearView_EditorEvent(InputAction.CallbackContext obj)
+        {
+            if (_isRearViewDisabled) return;
+            _cam.RearView(obj.started);
+        }
+
+        public void DisableRearView() => _isRearViewDisabled = true;
+        public void DisableAcceleration() => _isAccelerationDisabled = true;
+        public void ControlToPlayer()
+        {
+            _isAccelerationDisabled = false;
+            _isRearViewDisabled = false;
+        }
+
+        private void Pause_EditorEvent(InputAction.CallbackContext obj)
         {
             if (!_isMenuReady) return;
 
             if (!_isMenuOpen)
             {
+                TutorialManager.OnEvent(TutorialEvent.EscButton);
                 _isMenuOpen = true;
                 Time.timeScale = 0f;
-                _topMenuAnimator.SetTrigger(Show);
+                _topMenu.Pause_EditorEvent();
             }
             else
             {
                 _isMenuOpen = false;
-                _topMenuAnimator.SetTrigger(Hide);
                 Time.timeScale = 1f;
+                _topMenu.Resume_EditorEvent();
             }
         }
 
@@ -53,7 +72,8 @@ namespace Cars
         {
             if (!_isReady) return;
 
-            Acceleration = _controls.Player.Acceleration.ReadValue<float>();
+            if (!_isAccelerationDisabled)
+                Acceleration = _controls.Player.Acceleration.ReadValue<float>();
 
             CallHandBrake(_controls.Player.Brake.ReadValue<float>());
 
@@ -67,24 +87,46 @@ namespace Cars
             {
                 Rotate = Mathf.Clamp(Rotate + direction * Time.fixedDeltaTime, -1f, 1f);
             }
+
+            switch (Rotate)
+            {
+                case 1:
+                    TutorialManager.OnEvent(TutorialEvent.DButton);
+                    break;
+                case -1:
+                    TutorialManager.OnEvent(TutorialEvent.AButton);
+                    break;
+            }
+
+            switch (Acceleration)
+            {
+                case 1:
+                    TutorialManager.OnEvent(TutorialEvent.WButton);
+                    break;
+                case -1:
+                    TutorialManager.OnEvent(TutorialEvent.SButton);
+                    break;
+            }
         }
 
         public void FinishRace() 
         {
             _isReady = false;
             _isMenuReady = false;
-        } 
+        }
 
-        void CameraEndAnimation() => _isReady = true;
-        
-        void OnEnable() => _controls.Player.Enable();  
+        private void CameraEndAnimation() => _isReady = true;
 
-        void OnDisable() => _controls.Player.Disable();
+        private void OnEnable() => _controls.Player.Enable();
 
-        void OnDestroy()
+        private void OnDisable() => _controls.Player.Disable();
+
+        private void OnDestroy()
         {
-            // GameEvents.Singleton.OnCameraAnimationEnd -= CameraEndAnimation;
+            _cam.StartAnimationEndEvent -= CameraEndAnimation;
             _controls.Player.Pause.performed -= Pause_EditorEvent;
+            _controls.Player.RearView.started -= RearView_EditorEvent;
+            _controls.Player.RearView.canceled -= RearView_EditorEvent;
             _controls.Dispose();
         }
     }

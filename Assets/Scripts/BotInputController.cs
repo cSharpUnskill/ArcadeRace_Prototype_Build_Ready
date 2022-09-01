@@ -12,7 +12,7 @@ namespace Cars
 
         private bool _isReady;
 
-        IEnumerator Start()
+        private IEnumerator Start()
         {
             yield return new WaitForSeconds(12f);
             _isReady = true;   
@@ -38,13 +38,13 @@ namespace Cars
 
         private float GetAngle()
         {
-            var targetPos = _points[_index].transform.position;
+            Vector3 targetPos = _points[_index].transform.position;
             targetPos.y = transform.position.y;
-            var direction = targetPos - transform.position;
+            Vector3 direction = targetPos - transform.position;
             return -Vector3.SignedAngle(direction, transform.forward, Vector3.up);
         }
 
-        void OnTriggerEnter(Collider col)
+        private void OnTriggerEnter(Collider col)
         {
             if (col.GetComponent<BotTargetPoint>() != null)
                 _index++;

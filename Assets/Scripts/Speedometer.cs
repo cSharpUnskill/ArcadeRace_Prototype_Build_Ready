@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using System.Globalization;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Cars
 {
@@ -8,58 +9,42 @@ namespace Cars
     {
         private const float c_converter = 3.6f;
         private Transform _car;
-        private Text _text;
-
         [SerializeField]
-        private float _maxSpeed = 300f;
+        private CameraController _cam;
         [SerializeField]
-        private Color _minColor;
-        [SerializeField]
-        private Color _maxColor;
-
+        private TextMeshProUGUI _text;
         [SerializeField, Range(0.1f, 1f)]
         private float _delay = 0.3f;
 
-        void Start()
+        private void Start()
         {
-            _text = GetComponent<Text>();
             _car = FindObjectOfType<PlayerInputController>().transform;
             gameObject.SetActive(false);
-            GameEvents.Singleton.OnCameraAnimationEnd += CameraEndStartAnimation;
+            _cam.StartAnimationEndEvent += CameraEndStartAnimation;
         }
 
-        void CameraEndStartAnimation()
+        private void CameraEndStartAnimation()
         {
             gameObject.SetActive(true);
             StartCoroutine(Speed());
         }
 
-        public void FinishRace()
-        {
-            gameObject.SetActive(false);
-        }
-
+        public void FinishRace() => gameObject.SetActive(false);
         private IEnumerator Speed()
         {
-            var prevPos = _car.position;
+            Vector3 prevPos = _car.position;
             while (true)
             {
                 var distance = Vector3.Distance(_car.position, prevPos);
                 var speed = (float)System.Math.Round(distance / _delay * c_converter);
 
-                if (speed >= 50f)
-                {
-                    TutorialManager.OnEvent(TutorialEvent.SpeedMore50);
-                }
-
-                _text.text = speed.ToString();
-                _text.color = Color.Lerp(_minColor, _maxColor, speed / _maxSpeed);
+                _text.text = speed.ToString(CultureInfo.CurrentCulture);
 
                 prevPos = _car.position;
                 yield return new WaitForSeconds(_delay);
             }
         }
 
-        void OnDestroy() => GameEvents.Singleton.OnCameraAnimationEnd -= CameraEndStartAnimation;
+        private void OnDestroy() => _cam.StartAnimationEndEvent -= CameraEndStartAnimation;
     }
 }

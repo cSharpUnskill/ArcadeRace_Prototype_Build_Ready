@@ -23,15 +23,13 @@ namespace Cars
             _writer = null;
         }
 
-        private static List<string> Read()
+        private static IEnumerable<string> Read()
         {
             if (File.Exists(Address))
             {
-                string fileText;
-
                 StreamReader reader = new StreamReader(Address);
 
-                fileText = reader.ReadToEnd();
+                string fileText = reader.ReadToEnd();
 
                 reader.Close();
 

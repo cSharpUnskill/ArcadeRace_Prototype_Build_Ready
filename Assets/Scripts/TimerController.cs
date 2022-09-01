@@ -24,9 +24,6 @@ namespace Cars
             Invoke(nameof(DisableAnimator), 1f);
         }
 
-        void DisableAnimator()
-        {
-            gameObject.SetActive(false);
-        }
+        private void DisableAnimator() => gameObject.SetActive(false);
     }
 }

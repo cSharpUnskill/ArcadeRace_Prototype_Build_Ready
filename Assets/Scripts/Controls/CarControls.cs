@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/CarControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Controls/CarControls.inputactions'
 
 using System;
 using System.Collections;
@@ -48,6 +48,14 @@ namespace Cars
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""0f6e203a-aaae-4130-af6f-2914c825705c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RearView"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5123902-9d21-4f06-b440-3922a9bb3245"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -141,6 +149,17 @@ namespace Cars
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f046bde9-f827-4668-8fb9-ee7e1b9b05c7"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RearView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -153,6 +172,7 @@ namespace Cars
             m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
             m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
             m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+            m_Player_RearView = m_Player.FindAction("RearView", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -206,6 +226,7 @@ namespace Cars
         private readonly InputAction m_Player_Rotate;
         private readonly InputAction m_Player_Brake;
         private readonly InputAction m_Player_Pause;
+        private readonly InputAction m_Player_RearView;
         public struct PlayerActions
         {
             private @CarControls m_Wrapper;
@@ -214,6 +235,7 @@ namespace Cars
             public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
             public InputAction @Brake => m_Wrapper.m_Player_Brake;
             public InputAction @Pause => m_Wrapper.m_Player_Pause;
+            public InputAction @RearView => m_Wrapper.m_Player_RearView;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -235,6 +257,9 @@ namespace Cars
                     @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                     @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                     @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                    @RearView.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRearView;
+                    @RearView.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRearView;
+                    @RearView.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRearView;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -251,6 +276,9 @@ namespace Cars
                     @Pause.started += instance.OnPause;
                     @Pause.performed += instance.OnPause;
                     @Pause.canceled += instance.OnPause;
+                    @RearView.started += instance.OnRearView;
+                    @RearView.performed += instance.OnRearView;
+                    @RearView.canceled += instance.OnRearView;
                 }
             }
         }
@@ -261,6 +289,7 @@ namespace Cars
             void OnRotate(InputAction.CallbackContext context);
             void OnBrake(InputAction.CallbackContext context);
             void OnPause(InputAction.CallbackContext context);
+            void OnRearView(InputAction.CallbackContext context);
         }
     }
 }

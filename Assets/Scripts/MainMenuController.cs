@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -40,7 +41,7 @@ namespace Cars
         private static readonly int Upwards = Animator.StringToHash("Upwards");
         private static readonly int Blackout = Animator.StringToHash("Blackout");
 
-        void Start()
+        private void Start()
         {
             Time.timeScale = 1f;
             _arcade.SetActive(true);
@@ -97,7 +98,7 @@ namespace Cars
             }
         }
 
-        bool CheckExistingNicknames(string userName) => Recorder.CurrentLeaderboard().ContainsKey(userName);
+        private static bool CheckExistingNicknames(string userName) => Recorder.CurrentLeaderboard().ContainsKey(userName);
         
         public void Race_EditorEvent()
         {
@@ -106,12 +107,26 @@ namespace Cars
             _blackScreen.SetActive(true);
         }
 
-        void EnableGoButton() => _goButton.interactable = true;
+        public void TutorialEditorEvent()
+        {
+            _buttonsAnimator.SetTrigger(Upwards);
+            _blackScreen.SetActive(true);
+            _blackScreenAnimator.SetTrigger(Blackout);
+            StartCoroutine(TutorialSceneDelay());
+        }
+
+        private static IEnumerator TutorialSceneDelay()
+        {
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(2);
+        }
+
+        private void EnableGoButton() => _goButton.interactable = true;
         private void AnimationBlackout() => _blackScreenAnimator.SetTrigger(Blackout);
         private void MenuShowUp() => _menu.SetActive(true);
-        private void ChangeScene() => SceneManager.LoadScene(1);
+        private static void ChangeScene() => SceneManager.LoadScene(1);
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             GameEvents.Singleton.ReadyToTransition -= ChangeScene;
             GameEvents.Singleton.OnShowUpMenu -= MenuShowUp;

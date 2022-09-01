@@ -18,8 +18,10 @@ namespace Cars
         private float _handBrakeTorque = float.MaxValue;
         [SerializeField]
         private Vector3 _centerOfMass;
+        private bool _isCheckingAcceleration;
+        private bool _handbrakePressed;
 
-        void Start()
+        private void Start()
         {
             _body = GetComponent<Rigidbody>();
             _input = GetComponent<BaseInputController>();
@@ -29,19 +31,29 @@ namespace Cars
             _body.centerOfMass = _centerOfMass;
         }
 
-        void Update()
+        private void Update()
         {
             _wheels.UpdateVisual(_input.Rotate * _maxSteerAngle);
 
             var torque = _input.Acceleration * _torque / 2f;
 
-            foreach (var wheel in _wheels.GetRearWheels)
+            foreach (WheelCollider wheel in _wheels.GetRearWheels)
             {
                 wheel.motorTorque = torque;
             }
+            CheckingAcceleration();
         }
 
-        void OnDrawGizmos()
+        public void SetCheckingAccelerationState(bool state) => _isCheckingAcceleration = state;
+        private void CheckingAcceleration()
+        {
+            if (!_isCheckingAcceleration) return;
+            if (_body.velocity.magnitude > 0.0001f) return;
+            if (_handbrakePressed)
+                TutorialManager.OnEvent(TutorialEvent.SpaceButton);
+        }
+
+        private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
             Gizmos.DrawSphere(transform.TransformPoint(_centerOfMass), 0.5f);
@@ -51,7 +63,8 @@ namespace Cars
         {
             if (isOn != 0)
             {
-                foreach (var wheel in _wheels.GetAllWheels)
+                _handbrakePressed = true;
+                foreach (WheelCollider wheel in _wheels.GetAllWheels)
                 {
                     wheel.brakeTorque = _handBrakeTorque;
                     wheel.motorTorque = 0f;
@@ -59,7 +72,7 @@ namespace Cars
             }
             else
             {
-                foreach (var wheel in _wheels.GetAllWheels)
+                foreach (WheelCollider wheel in _wheels.GetAllWheels)
                 {
                     wheel.brakeTorque = 0f;
                 }
@@ -72,7 +85,7 @@ namespace Cars
             foreach (WheelCollider wheel in _wheels.GetAllWheels) wheel.brakeTorque = _handBrakeTorque;
         }
 
-        IEnumerator Lerp(float lerpTime)
+        private IEnumerator Lerp(float lerpTime)
         {
             var time = 0f;
 
@@ -85,7 +98,7 @@ namespace Cars
             _body.velocity = Vector3.zero;
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             if (_input != null)
                 _input.OnHandBrake -= HandBrake;
