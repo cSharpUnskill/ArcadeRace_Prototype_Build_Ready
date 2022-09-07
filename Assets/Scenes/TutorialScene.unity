@@ -211,8 +211,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 732424623}
   - {fileID: 1686033893}
+  - {fileID: 732424623}
   - {fileID: 4310780752273737271}
   - {fileID: 1695683997}
   m_Father: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &366584103
 Transform:
   m_ObjectHideFlags: 0
@@ -266,407 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbe09b9de1b20c43b5836428175155f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Steps:
-  - PlayerAction: 0
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Welcome to the quick tutorial guide. Let's start with
-              simple actions. Hold middle mouse button.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: showUp
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1671941663}
-          m_MethodName: DisableAcceleration
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 1
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Great. It's you rear view mirror. Use it when you want.
-              Now turn your wheels all the way left holding A button
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 2
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: So simple is that. Now turn them to the right holding
-              D button.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1020213699}
-          m_MethodName: CheckRightWheel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1671941663}
-          m_MethodName: DisableRearView
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 3
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Allright now when you've learned how to steer hold
-              S button to drive back.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1020213699}
-          m_MethodName: ReturnToBasePosition
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 4
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: WOW!  Be careful and don't run over any random grannys.
-              Hold space bar until car stops!
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1671941662}
-          m_MethodName: SetCheckingAccelerationState
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - PlayerAction: 5
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: As you can see there are no speed limit, so pedal to
-              the metal! Reach that checkpoint!
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1671941662}
-          m_MethodName: SetCheckingAccelerationState
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 406008944}
-          m_MethodName: StartTimer
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 10
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 828288917}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - PlayerAction: 6
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: There is you speedometer. Squeeze everything out of
-              this car!
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1279367393732421450}
-          m_MethodName: set_alpha
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 1
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 7
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Great race my friend! To pause press Escape button.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1671941662}
-          m_MethodName: RemoteHandBrake
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2069925942}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 8
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Only two buttons? Huh... I think everything is obvious
-              here.
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 406008944}
-          m_MethodName: StartTimer
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 2
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - PlayerAction: 0
-    ManagerAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1686033896}
-          m_MethodName: SetText
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Good luck in your future races. Tutorial is over!
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1686033897}
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: highlight
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &406008943
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &406008944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,9 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076d70c3bf427ae4fa67f32993d85f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tutorial: {fileID: 366584104}
-  _camera: {fileID: 1020213699}
-  _actionsDelay: 3.1
 --- !u!4 &406008945
 Transform:
   m_ObjectHideFlags: 0
@@ -724,6 +320,7 @@ GameObject:
   - component: {fileID: 550112973}
   - component: {fileID: 550112975}
   - component: {fileID: 550112974}
+  - component: {fileID: 550112976}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -747,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 41}
-  m_SizeDelta: {x: 396, y: 61}
+  m_AnchoredPosition: {x: -220.7, y: -113.1}
+  m_SizeDelta: {x: 438.3, y: 227.5}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &550112974
 MonoBehaviour:
@@ -796,17 +393,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 2.18
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -832,7 +429,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 5.192627, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -846,6 +443,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550112972}
   m_CullTransparentMesh: 0
+--- !u!114 &550112976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550112972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc1f747b550491ab4ad86b65236f949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 550112974}
+  _key: 
 --- !u!1001 &732244366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -941,7 +552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &828288918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1146,6 +757,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 30, z: 0}
+--- !u!1 &890265028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890265030}
+  - component: {fileID: 890265029}
+  m_Layer: 0
+  m_Name: ScenarioSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &890265029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890265028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09f79ee9d7e4790a15ce6c94a8cde27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 3
+--- !u!4 &890265030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890265028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &988360372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7622936083123368547, guid: 92e3101e77b0f1a439e9240b806a8c4f,
@@ -1359,18 +1014,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1671941662 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1672544874750126602, guid: b32d4ebd6a8074d4ca93b464fedd4d25,
-    type: 3}
-  m_PrefabInstance: {fileID: 2113506337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d27ee52c609171b448f3d64c2577c456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1671941663 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1672544874750126601, guid: b32d4ebd6a8074d4ca93b464fedd4d25,
@@ -1416,7 +1059,7 @@ RectTransform:
   m_Children:
   - {fileID: 550112973}
   m_Father: {fileID: 115202193}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1472,7 +1115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095f3bfe939749149b23a9de46d0c5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 550112974}
 --- !u!95 &1686033897
 Animator:
   serializedVersion: 3
@@ -1692,7 +1334,7 @@ PrefabInstance:
     - target: {fileID: 4670562001645847093, guid: 92c3680f434f1c44a84f106cd60f7c70,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4670562001645847093, guid: 92c3680f434f1c44a84f106cd60f7c70,
         type: 3}
@@ -1828,12 +1470,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26419c6407d63bc4abd79bf3d120f522, type: 3}
---- !u!1 &2069925942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4428641083024674866, guid: 0ba3571e8dd4c404496dd0ee1510c811,
-    type: 3}
-  m_PrefabInstance: {fileID: 479433081371825668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2104666399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2156,18 +1792,6 @@ PrefabInstance:
       objectReference: {fileID: 1020213699}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ba3571e8dd4c404496dd0ee1510c811, type: 3}
---- !u!114 &1279367393732421450 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1686158278014169422, guid: 0ba3571e8dd4c404496dd0ee1510c811,
-    type: 3}
-  m_PrefabInstance: {fileID: 479433081371825668}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2069925942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4310780752273737271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4428641083024674867, guid: 0ba3571e8dd4c404496dd0ee1510c811,

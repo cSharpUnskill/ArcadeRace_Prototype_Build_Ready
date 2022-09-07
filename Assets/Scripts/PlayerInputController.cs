@@ -52,7 +52,7 @@ namespace Cars
 
             if (!_isMenuOpen)
             {
-                TutorialManager.OnEvent(TutorialEvent.EscButton);
+                ScenarioSwitcher.OnEvent(PlayerAction.EscButton);
                 _isMenuOpen = true;
                 Time.timeScale = 0f;
                 _topMenu.Pause_EditorEvent();
@@ -91,20 +91,20 @@ namespace Cars
             switch (Rotate)
             {
                 case 1:
-                    TutorialManager.OnEvent(TutorialEvent.DButton);
+                    ScenarioSwitcher.OnEvent(PlayerAction.DButton);
                     break;
                 case -1:
-                    TutorialManager.OnEvent(TutorialEvent.AButton);
+                    ScenarioSwitcher.OnEvent(PlayerAction.AButton);
                     break;
             }
 
             switch (Acceleration)
             {
                 case 1:
-                    TutorialManager.OnEvent(TutorialEvent.WButton);
+                    ScenarioSwitcher.OnEvent(PlayerAction.WButton);
                     break;
                 case -1:
-                    TutorialManager.OnEvent(TutorialEvent.SButton);
+                    ScenarioSwitcher.OnEvent(PlayerAction.SButton);
                     break;
             }
         }

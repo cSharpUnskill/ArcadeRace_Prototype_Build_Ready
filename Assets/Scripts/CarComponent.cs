@@ -50,7 +50,7 @@ namespace Cars
             if (!_isCheckingAcceleration) return;
             if (_body.velocity.magnitude > 0.0001f) return;
             if (_handbrakePressed)
-                TutorialManager.OnEvent(TutorialEvent.SpaceButton);
+                ScenarioSwitcher.OnEvent(PlayerAction.SpaceButton);
         }
 
         private void OnDrawGizmos()

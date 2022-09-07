@@ -42,7 +42,7 @@ namespace Cars
 
         public void RearView(bool state)
         {
-            TutorialManager.OnEvent(TutorialEvent.MiddleMouseButton);
+            ScenarioSwitcher.OnEvent(PlayerAction.MiddleMouseButton);
             _currentTarget = state
                 ? _rearViewSpot
                 : _baseViewSpot;

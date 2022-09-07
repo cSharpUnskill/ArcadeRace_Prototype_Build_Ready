@@ -16,11 +16,12 @@ namespace Cars
         [SerializeField, Range(0.1f, 1f)]
         private float _delay = 0.3f;
 
-        private void Start()
+        private IEnumerator Start()
         {
             _car = FindObjectOfType<PlayerInputController>().transform;
-            gameObject.SetActive(false);
             _cam.StartAnimationEndEvent += CameraEndStartAnimation;
+            yield return null;
+            gameObject.SetActive(false);
         }
 
         private void CameraEndStartAnimation()
